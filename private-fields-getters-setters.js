@@ -8,7 +8,7 @@ class Person {
     }
 
     greet() {
-        return 'Hello ' + this.#firstname;
+        return 'Hello ' + this.#firstname + ': ' + this.#getPersonInfo().id;
     }
 
     get fname() {
@@ -18,10 +18,11 @@ class Person {
     set fname(name) {
         this.#firstname = name;
     }
+
+    #getPersonInfo() {
+        return { id: 1 };
+    }
 }
 
 let person = new Person('Tony', 'Kroos');
-console.log(person.greet());
-console.log(person.fname);
-person.fname = 'Gary';
 console.log(person.greet());
